@@ -2,13 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 
 class Doctors:
-    
     def __init__(self):
-
-        # Instance Variable
-        
         self.html_text = requests.get('https://www.uchbd.com/all-doctors').text
-
         self.soup = BeautifulSoup(self.html_text, 'lxml')
         self.doctors = self.soup.find_all('h3')
         for i in range(len(self.doctors)-4):
